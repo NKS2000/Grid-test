@@ -5,18 +5,20 @@
 }
 html{
     font-size: 62.5%;
-    margin: 0 30px;
+}
+main{
+    width: 100%;
 }
 .hero{
     display: grid;
     width: 100%;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(300px, 2fr) 3fr;
     grid-auto-rows: 500px;
     border-bottom: 1px solid #ddd;
 }
 .hero--title{
     align-self: center;
-    margin-left: 10px;
+    margin-left: 40px;
 }
 .hero--title h1{
     color: #333;
@@ -60,7 +62,7 @@ html{
 }
 .main-services--container{
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, 200px));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 200px));
     grid-auto-rows: 1fr;
     gap: 6px;
     place-content: center;
@@ -90,7 +92,7 @@ html{
 }
 .home-menu--grid{
     display: grid;
-    grid-template-columns: repeat(5, minmax(80px,200px));
+    grid-template-columns: repeat(auto-fit, 150px);
     grid-auto-rows: 200px;
     gap: 15px;
     place-content: center;
@@ -105,4 +107,17 @@ html{
     height: 100%;
     object-fit: contain;
     cursor: pointer;
+}
+@media  screen and (max-width: 770px) {
+    .hero{
+        grid-template-columns: minmax(300px, 500px);
+        grid-auto-rows: minmax(200px, 300px);
+        justify-content: center;
+    }
+    .hero--img{
+        display: none;
+    }
+    .main-services--container{
+        grid-template-columns: repeat(auto-fit, minmax(70px, 150px));
+    }
 }
